@@ -22,7 +22,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>org.hbrs.ooka.ws2020.uebung1.main.mainClass</mainClass>
+                            <mainClass>main.java.uebung1.main.mainClass</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

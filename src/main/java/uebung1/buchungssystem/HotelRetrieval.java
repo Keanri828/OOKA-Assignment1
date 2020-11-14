@@ -1,7 +1,7 @@
-package org.hbrs.ooka.ws2020.uebung1.buchungssystem;
+package main.java.uebung1.buchungssystem;
 
-import org.hbrs.ooka.ws2020.uebung1.extern.Caching;
-import org.hbrs.ooka.ws2020.uebung1.hotel.Hotel;
+import main.java.uebung1.extern.Caching;
+import main.java.uebung1.hotel.Hotel;
 
 public class HotelRetrieval implements Hotelsuche {
     DBAccess db;

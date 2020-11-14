@@ -1,4 +1,4 @@
-package org.hbrs.ooka.ws2020.uebung1.hotel;
+package main.java.uebung1.hotel;
 
 public class Hotel {
     // Integer id;

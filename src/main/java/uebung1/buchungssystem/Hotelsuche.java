@@ -1,6 +1,6 @@
-package org.hbrs.ooka.ws2020.uebung1.buchungssystem;
+package main.java.uebung1.buchungssystem;
 
-import org.hbrs.ooka.ws2020.uebung1.hotel.Hotel;
+import main.java.uebung1.hotel.Hotel;
 
 public interface Hotelsuche {
     Hotel[] getHotelByName(String name);

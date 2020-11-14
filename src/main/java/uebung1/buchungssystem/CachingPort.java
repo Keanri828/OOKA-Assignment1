@@ -1,6 +1,6 @@
-package org.hbrs.ooka.ws2020.uebung1.buchungssystem;
+package main.java.uebung1.buchungssystem;
 
-import org.hbrs.ooka.ws2020.uebung1.extern.Caching;
+import main.java.uebung1.extern.Caching;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package org.hbrs.ooka.ws2020.uebung1.buchungssystem;
+package main.java.uebung1.buchungssystem;
 
 
 import java.sql.*;

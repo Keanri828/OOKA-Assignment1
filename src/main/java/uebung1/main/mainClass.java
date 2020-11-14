@@ -1,6 +1,6 @@
-package org.hbrs.ooka.ws2020.uebung1.main;
+package main.java.uebung1.main;
 
-import org.hbrs.ooka.ws2020.uebung1.buchungssystem.*;
+import main.java.uebung1.buchungssystem.*;
 
 public class mainClass {
     public static void main(String[] args) {
