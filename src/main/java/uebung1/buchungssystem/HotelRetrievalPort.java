@@ -14,16 +14,4 @@ public class HotelRetrievalPort implements Hotelsuche{
         return new Hotel[0];
     }
 
-    @Override
-    public void openSession() {
-
-    }
-
-    @Override
-    public void closeSession() {
-
-    }
-    // macht dieser Port als eigene Klasse Sinn oder sollte
-    // HotelRetrieval bereits die Port-Klasse sein?
-
 }
