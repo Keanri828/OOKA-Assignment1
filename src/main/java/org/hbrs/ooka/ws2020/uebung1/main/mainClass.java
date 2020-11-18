@@ -2,6 +2,8 @@ package org.hbrs.ooka.ws2020.uebung1.main;
 
 import org.hbrs.ooka.ws2020.uebung1.buchungssystem.*;
 import org.hbrs.ooka.ws2020.uebung1.extern.Cache;
+import org.hbrs.ooka.ws2020.uebung1.extern.Logger;
+import org.hbrs.ooka.ws2020.uebung1.extern.Logging;
 
 public class mainClass {
 
@@ -14,23 +16,25 @@ public class mainClass {
     }
 
     /**
-     * Initialize the Application
+     * Initialize the Application without Cache, returns the application's "entry point"
      */
     private static Hotelsuche init_Application() {
-        Cache c = new Cache();
-        CachePort c_port = new CachePort(c);
+        CachePort c_port = new CachePort();
+        Logging l = new Logger();
         HotelRetrieval hotelRetrievalObject = new HotelRetrieval(c_port);
-        HotelSuchePort h_search_port = new HotelSuchePort(hotelRetrievalObject);
-        return h_search_port;
+        return new HotelSuchePort(hotelRetrievalObject, l);
     }
 
     /**
      * init_Application with a given Cache
      * @param c Cache
+     * @return Hotelsuche (HotelSuchePort as entry point)
      */
-    private static void init_Application(Cache c) {
+    private static Hotelsuche init_Application(Cache c) {
         CachePort c_port = new CachePort(c);
         HotelRetrieval hotelRetrievalObject = new HotelRetrieval(c_port);
+        Logging l = new Logger();
+        return new HotelSuchePort(hotelRetrievalObject, l);
     }
 
     private static void test_Application(Hotelsuche h_search) {
