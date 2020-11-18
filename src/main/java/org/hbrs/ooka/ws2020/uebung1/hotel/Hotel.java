@@ -5,8 +5,7 @@ public class Hotel {
     String name;
     String city;
 
-    public Hotel(Integer id, String name, String city) {
-        // this.id = id;
+    public Hotel(String name, String city) {
         this.name = name;
         this.city = city;
     }
