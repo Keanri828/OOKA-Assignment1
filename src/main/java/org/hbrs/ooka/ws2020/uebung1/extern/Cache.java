@@ -1,6 +1,4 @@
-package main.java.uebung1.main;
-
-import main.java.uebung1.extern.Caching;
+package org.hbrs.ooka.ws2020.uebung1.extern;
 
 import java.util.List;
 
