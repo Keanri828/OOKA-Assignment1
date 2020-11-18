@@ -2,8 +2,8 @@ package org.hbrs.ooka.ws2020.uebung1.hotel;
 
 public class Hotel {
     // Integer id;
-    String name;
-    String city;
+    private String name;
+    private String city;
 
     public Hotel(String name, String city) {
         this.name = name;

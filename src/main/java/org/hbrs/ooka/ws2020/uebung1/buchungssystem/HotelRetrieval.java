@@ -12,6 +12,8 @@ public class HotelRetrieval implements Hotelsuche, UsingDBAccess {
 
     @Override
     public Hotel[] getHotelByName(String name) {
+
+
         return new Hotel[0];
     }
 }
