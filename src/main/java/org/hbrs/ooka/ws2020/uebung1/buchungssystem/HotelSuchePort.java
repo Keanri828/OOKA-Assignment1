@@ -4,7 +4,7 @@ import org.hbrs.ooka.ws2020.uebung1.extern.Logging;
 import org.hbrs.ooka.ws2020.uebung1.helpers.KeyValuePair;
 import org.hbrs.ooka.ws2020.uebung1.hotel.Hotel;
 
-public class HotelSuchePort implements HotelSucheExtended, HotelSucheSimple, Logging {
+public class HotelSuchePort implements HotelSucheExtended, HotelSucheSimple {
     HotelRetrieval hotelRetrievalObject;
     Logging l;
 
@@ -34,10 +34,5 @@ public class HotelSuchePort implements HotelSucheExtended, HotelSucheSimple, Log
     @Override
     public Hotel[] getHotelsExtendedSearch(KeyValuePair[] params) {
         return new Hotel[0];
-    }
-
-    @Override
-    public void log(String method_name, KeyValuePair[] params) {
-
     }
 }
