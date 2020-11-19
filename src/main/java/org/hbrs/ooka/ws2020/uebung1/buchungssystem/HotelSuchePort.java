@@ -15,7 +15,10 @@ public class HotelSuchePort implements HotelSucheExtended, HotelSucheSimple, Log
 
     @Override
     public Hotel[] getHotelsByName(String name) {
-        return new Hotel[0];
+        KeyValuePair[] params = new KeyValuePair[1];
+        params[0] = new KeyValuePair<String>("name", name);
+        l.log("getHotelsByName", params);
+        return hotelRetrievalObject.getHotelsByName(name);
     }
 
     @Override

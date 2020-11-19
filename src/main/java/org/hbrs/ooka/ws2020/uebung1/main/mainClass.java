@@ -4,15 +4,29 @@ import org.hbrs.ooka.ws2020.uebung1.buchungssystem.*;
 import org.hbrs.ooka.ws2020.uebung1.extern.Cache;
 import org.hbrs.ooka.ws2020.uebung1.extern.Logger;
 import org.hbrs.ooka.ws2020.uebung1.extern.Logging;
+import org.hbrs.ooka.ws2020.uebung1.hotel.Hotel;
 
 public class mainClass {
 
     public static void main(String[] args) {
-        // init the whole structure
-        Hotelsuche h_search_port = init_Application();
+        if (args.length == 0) {
+            // TESTING TIME! ;)
+            // init the whole structure
+            Hotelsuche h_search_port = init_Application();
 
-        // test the application
-        test_Application(h_search_port);
+            // test the application
+            System.out.println("Testing Application without Cache...");
+            test_Application((HotelSucheSimple) h_search_port);
+
+            // init the whole structure with a Cache for testing
+            System.out.println("Testing Application with Cache...");
+            h_search_port = init_Application(Cache.getInstance());
+            test_Application((HotelSucheSimple) h_search_port);
+        } else {
+            // only uses the first given name
+            Hotelsuche h_search_port = init_Application(Cache.getInstance());
+            search_args((HotelSucheSimple) h_search_port, args[0]);
+        }
     }
 
     /**
@@ -37,7 +51,29 @@ public class mainClass {
         return new HotelSuchePort(hotelRetrievalObject, l);
     }
 
-    private static void test_Application(Hotelsuche h_search) {
+    private static void test_Application(HotelSucheSimple h_search) {
+        h_search.openSession();
 
+        Hotel[] results = h_search.getHotelsByName("Hotel");
+        for (Hotel result : results) {
+            System.out.println(result);
+        }
+
+        // mainly for Cache-testing
+        results = h_search.getHotelsByName("Hotel");
+        for (Hotel result : results) {
+            System.out.println(result);
+        }
+
+        h_search.closeSession();
+    }
+
+    private static void search_args(HotelSucheSimple h_search, String name) {
+        h_search.openSession();
+        Hotel[] hotels = h_search.getHotelsByName(name);
+        for (Hotel hotel : hotels) {
+            System.out.println(hotel);
+        }
+        h_search.closeSession();
     }
 }

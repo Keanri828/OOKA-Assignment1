@@ -33,17 +33,28 @@ public class HotelRetrieval implements HotelSucheSimple, HotelSucheExtended {
 
     @Override
     public Hotel[] getHotelsByName(String name) {
-        // DB Query
-        List<String> db_results = db.getObjects(DBAccess.HOTEL, name);
+        // check cache entries
+        List<Hotel> cache_entries = c_port.getEntry(name);
+        if (!cache_entries.isEmpty()) {
+            System.out.println("Test-Informationen: Verwende Cache-Daten.");
+            Hotel[] a_hotels = new Hotel[cache_entries.size()];
+            return cache_entries.toArray(a_hotels);
+        } else {
+            // DB Query
+            List<String> db_results = db.getObjects(DBAccess.HOTEL, name);
 
-        // Convert DB Query to List of Hotels
-        List<Hotel> hotels = new ArrayList<>();
-        for (int i = 0; i < db_results.size(); i += 3) {
-            hotels.add(new Hotel(db_results.get(i + 1), db_results.get(i + 2)));
+            // Convert DB Query to List of Hotels
+            List<Hotel> hotels = new ArrayList<>();
+            for (int i = 0; i < db_results.size(); i += 3) {
+                hotels.add(new Hotel(db_results.get(i + 1), db_results.get(i + 2)));
+            }
+
+            // cache list
+            c_port.cacheResult(name, hotels);
+
+            // Convert List to Array (as specified)
+            Hotel[] a_hotels = new Hotel[hotels.size()];
+            return hotels.toArray(a_hotels);
         }
-
-        // Convert List to Array (as specified)
-        Hotel[] a_hotels = new Hotel[hotels.size()];
-        return hotels.toArray(a_hotels);
     }
 }
