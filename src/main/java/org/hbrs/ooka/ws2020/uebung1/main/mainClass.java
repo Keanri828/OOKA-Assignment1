@@ -2,6 +2,7 @@ package org.hbrs.ooka.ws2020.uebung1.main;
 
 import org.hbrs.ooka.ws2020.uebung1.buchungssystem.*;
 import org.hbrs.ooka.ws2020.uebung1.extern.Cache;
+import org.hbrs.ooka.ws2020.uebung1.extern.Caching;
 import org.hbrs.ooka.ws2020.uebung1.extern.Logger;
 import org.hbrs.ooka.ws2020.uebung1.extern.Logging;
 import org.hbrs.ooka.ws2020.uebung1.hotel.Hotel;
@@ -44,7 +45,7 @@ public class mainClass {
      * @param c Cache
      * @return Hotelsuche (HotelSuchePort as entry point)
      */
-    private static Hotelsuche init_Application(Cache c) {
+    private static Hotelsuche init_Application(Caching c) {
         CachePort c_port = new CachePort(c);
         HotelRetrieval hotelRetrievalObject = new HotelRetrieval(c_port);
         Logging l = new Logger();
